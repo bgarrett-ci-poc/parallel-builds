@@ -13,6 +13,7 @@ pipeline {
                     }
                 }
                 stage('Build 2') {
+                    agent any
                     steps {
                         echo 'Building variant 2'
                         sleep (6)
@@ -20,7 +21,8 @@ pipeline {
                     }
                 }
                 stage('Build 3') {
-                    steps {
+                  agent any
+                  steps {
                         echo 'Building variant 3'
                         sleep (10)
                         echo 'Done'
@@ -31,6 +33,7 @@ pipeline {
         stage ('Test') {
             parallel { 
                 stage('Test 1') {
+                    agent any
                     steps {
                         echo 'Testing variant 1'
                         sleep (5)
@@ -38,6 +41,7 @@ pipeline {
                     }
                 }
                 stage('Test 2') {
+                    agent any
                     steps {
                         echo 'Testing variant 2'
                         sleep (6)
@@ -45,7 +49,8 @@ pipeline {
                     }
                 }
                 stage('Test 3') {
-                    steps {
+                  agent any
+                  steps {
                         echo 'Testing variant 3'
                         sleep (10)
                         echo 'Done'
