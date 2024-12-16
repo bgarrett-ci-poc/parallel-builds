@@ -1,0 +1,56 @@
+pipeline {
+    agent any
+
+    stages {
+        stage ('Build') {
+            parallel { 
+                stage('Build 1') {
+                    steps {
+                        echo 'Building variant 1'
+                        sleep (5)
+                        echo 'Done'
+                    }
+                }
+                stage('Build 2') {
+                    steps {
+                        echo 'Building variant 2'
+                        sleep (6)
+                        echo 'Done'
+                    }
+                }
+                stage('Build 3') {
+                    steps {
+                        echo 'Building variant 3'
+                        sleep (10)
+                        echo 'Done'
+                    }
+                }
+            }
+        }
+        stage ('Test') {
+            parallel { 
+                stage('Test 1') {
+                    steps {
+                        echo 'Testing variant 1'
+                        sleep (5)
+                        echo 'Done'
+                    }
+                }
+                stage('Test 2') {
+                    steps {
+                        echo 'Testing variant 2'
+                        sleep (6)
+                        echo 'Done'
+                    }
+                }
+                stage('Test 3') {
+                    steps {
+                        echo 'Testing variant 3'
+                        sleep (10)
+                        echo 'Done'
+                    }
+                }
+            }
+        }
+    }
+}
