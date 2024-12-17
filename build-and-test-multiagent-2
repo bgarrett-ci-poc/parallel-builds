@@ -23,12 +23,50 @@ pipeline {
                         }
                     }
                 }
+                 stage('Variant 2') {
+                    agent any
+                    stages {
+                        stage('Build v2') {
+                            steps {
+                                echo 'Building variant 1'
+                                sleep (4)
+                                echo 'Done'
+                            }
+                        }
+                        stage('Feature Test v21') {
+                            steps {
+                                echo 'Testing variant 1'
+                                sleep (5)
+                                echo 'Done'
+                            }
+                        }
+                    }
+                }
+                stage('Variant 3') {
+                    agent any
+                    stages {
+                        stage('Build v3') {
+                            steps {
+                                echo 'Building variant 3'
+                                sleep (10)
+                                echo 'Done'
+                            }
+                        }
+                        stage('Feature Test v3') {
+                            steps {
+                                echo 'Testing variant 3'
+                                sleep (5)
+                                echo 'Done'
+                            }
+                        }
+                    }
+                }
             }
         }
         stage ('Publish') {
             agent any
             steps {
-                echo 'Testing variant 1'
+                echo 'Pushing package to Artifactory'
                 sleep (5)
                 echo 'Done'
             }
