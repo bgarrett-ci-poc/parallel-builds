@@ -1,0 +1,37 @@
+pipeline {
+    agent none
+
+    stages {
+        stage ('Build and Feature Test') {
+            parallel { 
+                stage('Variant 1') {
+                    agent any
+                    stages {
+                        stage('Build v1') {
+                            steps {
+                                echo 'Building variant 1'
+                                sleep (5)
+                                echo 'Done'
+                            }
+                        }
+                        stage('Feature Test v1') {
+                            steps {
+                                echo 'Testing variant 1'
+                                sleep (5)
+                                echo 'Done'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        stage ('Publish') {
+            agent any
+            steps {
+                echo 'Testing variant 1'
+                sleep (5)
+                echo 'Done'
+            }
+        }
+    }
+}
