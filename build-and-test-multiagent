@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage ('Build') {
             parallel { 
-                stage('Build 1') {
+                stage('Build arch 1') {
                     agent any
                     steps {
                         echo 'Building variant 1'
@@ -12,7 +12,7 @@ pipeline {
                         echo 'Done'
                     }
                 }
-                stage('Build 2') {
+                stage('Build arch 2') {
                     agent any
                     steps {
                         echo 'Building variant 2'
@@ -20,7 +20,7 @@ pipeline {
                         echo 'Done'
                     }
                 }
-                stage('Build 3') {
+                stage('Build arch 3') {
                   agent any
                   steps {
                         echo 'Building variant 3'
@@ -32,7 +32,7 @@ pipeline {
         }
         stage ('Test') {
             parallel { 
-                stage('Test 1') {
+                stage('Test arch 1') {
                     agent any
                     steps {
                         echo 'Testing variant 1'
@@ -40,7 +40,7 @@ pipeline {
                         echo 'Done'
                     }
                 }
-                stage('Test 2') {
+                stage('Test arch 2') {
                     agent any
                     steps {
                         echo 'Testing variant 2'
@@ -48,7 +48,7 @@ pipeline {
                         echo 'Done'
                     }
                 }
-                stage('Test 3') {
+                stage('Test arch 3') {
                   agent any
                   steps {
                         echo 'Testing variant 3'
